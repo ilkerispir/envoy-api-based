@@ -3,15 +3,18 @@
 ## Architecture
 ![Architecture](architecture.png)
 
-## Commands
+## Run Envoy
 ```
-docker run -d --name envoy -p 9901:9901 -p 80:10000  -v /root/:/etc/envoy ilkerispir/envoy
-```
+docker run -d --name envoy -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 -v /root/:/etc/envoy ilkerispir/envoy
 
+docker run -d --name envoy -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 ilkerispir/envoy
+```
+## Run Upstream
 ```
 docker run -p 8081:8081 -d ilkerispir/upstream
 ```
 
+## Run xDS
 ```
 docker run -p 8080:8080 -d ilkerispir/xds
 ```
