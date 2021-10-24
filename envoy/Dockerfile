@@ -1,3 +1,7 @@
-FROM envoyproxy/envoy-dev:4b5b3386c6b0d2d284bb1f71639c8e0972659867
-COPY envoy.yaml /etc/envoy/envoy.yaml
-RUN chmod go+r /etc/envoy/envoy.yaml
+FROM envoyproxy/envoy-dev:latest
+
+COPY ./envoy.yaml /etc/envoy.yaml
+
+RUN chmod go+r /etc/envoy.yaml
+
+CMD ["/usr/local/bin/envoy", "-c /etc/envoy.yaml", "-l", "debug"]
