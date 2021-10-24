@@ -3,9 +3,9 @@
 ## Architecture
 ![Architecture](architecture.png)
 
+## Commands
 ```
-    docker-compose build --pull
-    docker-compose up -d
+docker run -d --name envoy -p 9901:9901 -p 80:10000  -v /root/:/etc/envoy ilkerispir/envoy
 ```
 
 ```
