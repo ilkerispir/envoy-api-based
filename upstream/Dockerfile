@@ -1,10 +1,9 @@
-FROM python:2
-ENV EDS_SERVER_PORT 18080
-WORKDIR /usr/src/app
+FROM python:2.7.18-slim-buster
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /
 
 COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "python", "./server.py" ]

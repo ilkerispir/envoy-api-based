@@ -1,41 +1,28 @@
-node:
-  cluster: test-cluster
-  id: test-id
-
-dynamic_resources:
-  ads_config:
-    api_type: GRPC
-    transport_api_version: V3
-    grpc_services:
-    - envoy_grpc:
-        cluster_name: xds_cluster
-  cds_config:
-    resource_api_version: V3
-    ads: {}
-  lds_config:
-    resource_api_version: V3
-    ads: {}
-
-static_resources:
-  clusters:
-  - type: STRICT_DNS
-    typed_extension_protocol_options:
-      envoy.extensions.upstreams.http.v3.HttpProtocolOptions:
-        "@type": type.googleapis.com/envoy.extensions.upstreams.http.v3.HttpProtocolOptions
-        explicit_http_config:
-          http2_protocol_options: {}
-    name: xds_cluster
-    load_assignment:
-      cluster_name: xds_cluster
-      endpoints:
-      - lb_endpoints:
-        - endpoint:
-            address:
-              socket_address:
-                address: go-control-plane
-                port_value: 18000
 admin:
+  access_log_path: /dev/null
   address:
     socket_address:
-      address: 0.0.0.0
-      port_value: 19000
+      address: 127.0.0.1
+      port_value: 9000
+
+node:
+  cluster: mycluster
+  id: test-id
+
+static_resources:
+
+  clusters:
+  - name: targetCluster
+    type: EDS
+    connect_timeout: 0.25s
+    eds_cluster_config:
+      service_name: myservice
+      eds_config:
+        api_config_source:
+          api_type: REST
+          cluster_names: [eds_cluster]
+          refresh_delay: 5s
+  - name: eds_cluster
+    type: STATIC
+    connect_timeout: 0.25s
+    hosts: [{ socket_address: { address: 172.18.0.4, port_value: 8080 }}]
