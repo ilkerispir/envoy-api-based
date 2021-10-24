@@ -1,10 +1,11 @@
 ## Envoyproxy API-based dynamic endpoint discovery configuration EDS, LDS, CDS
+
+## Architecture
+![Architecture](architecture.png)
+
 ```
-docker run --name=api-eds -d \
-    -p 9901:9901 \
-    -p 80:10000 \
-    -v /root/:/etc/envoy \
-    envoyproxy/envoy:v1.20-latest
+    docker-compose build --pull
+    docker-compose up -d
 ```
 
 ```
