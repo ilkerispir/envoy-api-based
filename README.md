@@ -8,11 +8,11 @@ docker run --name=api-eds -d \
 ```
 
 ```
-docker run -p 8081:8081 -d katacoda/docker-http-server:v4
+docker run -p 8081:8081 -d ilkerispir/upstream
 ```
 
 ```
-docker run -p 8080:8080 -d katacoda/eds_server
+docker run -p 8080:8080 -d ilkerispir/xds
 ```
 
 ## Remove all containers & images
