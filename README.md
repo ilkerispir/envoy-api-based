@@ -1,4 +1,4 @@
-## Envoyproxy API-based dynamic endpoint discovery configuration EDS, LDS, CDS
+## Envoyproxy API-based dynamic endpoint discovery configuration
 
 ## Architecture
 ![Architecture](architecture.png)
