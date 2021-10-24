@@ -7,7 +7,7 @@
 ```
 func-e run -c envoy/envoy.yaml
 
-docker run -d --name envoy -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 -v /root/:/etc/envoy ilkerispir/envoy
+docker run -d --name envoy -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 ilkerispir/envoy
 ```
 ## Run Upstream
 ```
