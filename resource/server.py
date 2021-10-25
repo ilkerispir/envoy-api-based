@@ -12,14 +12,10 @@ uid = uuid.uuid4()
 
 @app.route('/')
 def index():
-    print(request.headers)
-    print("--------------")
     return str(uid)
 
 @app.route('/healthz')
 def health():
-    print(request.headers)
-    print("/healthz")
     return "ok"   
 
 import sys, getopt
