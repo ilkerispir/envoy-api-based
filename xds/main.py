@@ -1,4 +1,3 @@
-  
 from flask import Flask, request, abort
 from flask_restplus import Api, Resource, fields, marshal
 from functools import wraps

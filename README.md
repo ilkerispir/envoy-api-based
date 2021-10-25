@@ -5,11 +5,16 @@
 
 ## Run Envoy
 ```
-docker run -d --name envoy -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 ilkerispir/envoy
+docker run -d --name api-eds -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 ilkerispir/envoy
 ```
 ## Run Upstream
 ```
-docker run -p 8081:8081 -d ilkerispir/upstream
+
+for i in 8081 8082 8083 8084 8085
+  do
+    docker run -d -e EDS_SERVER_PORT=$i ilkerispir/upstream;
+    sleep .5
+done
 ```
 
 ## Run xDS
