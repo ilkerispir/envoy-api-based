@@ -1,7 +1,7 @@
 ## Envoyproxy API-based dynamic endpoint discovery configuration
 
 ## Architecture
-![Architecture](architecture.png)
+![Architecture](images/architecture.png)
 
 ## Run Envoy
 ```
@@ -17,6 +17,14 @@ cd xds; go run grpc_server.go
 ```
 cd resource; python server.py -p 8081
 ```
+
+## cURL Test
+```
+while true; do curl http://localhost:10000; sleep .5; printf '\n'; done
+```
+
+## Result
+![Result](images/curl.png)
 
 ## Remove all containers & images
 ```
