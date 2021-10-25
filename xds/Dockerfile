@@ -1,21 +1,31 @@
-FROM golang:1.13 as build
+# syntax=docker/dockerfile:1
 
-ENV GO111MODULE=on
+##
+## Build
+##
+FROM golang:1.16-buster AS build
 
 WORKDIR /app
 
-COPY . .
-
+COPY go.mod ./
+COPY go.sum ./
 RUN go mod download
 
-COPY . .
+COPY *.go ./
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build grpc_server.go
+RUN go build -o /grpc_server
 
-FROM gcr.io/distroless/base
+##
+## Deploy
+##
+FROM gcr.io/distroless/base-debian10
 
-COPY --from=build /app/grpc_server /
+WORKDIR /
+
+COPY --from=build /grpc_server /grpc_server
 
 EXPOSE 8080
+
+USER nonroot:nonroot
 
 ENTRYPOINT ["/grpc_server"]
