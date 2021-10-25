@@ -5,7 +5,7 @@
 
 ## Run Envoy
 ```
-docker run -d --name api-eds -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9901:9901 -p 80:10000 ilkerispir/envoy
+docker run -d --name api-eds -e ENVOY_UID=777 -e ENVOY_GID=777 -p 9000:9000 -p 80:10000 ilkerispir/envoy
 ```
 ## Run Upstream
 ```
