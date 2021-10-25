@@ -185,5 +185,4 @@ class Services(Resource):
         '''Update a given resource'''        
         return DAO.update(service_name, api.payload)
 
-
 app.run(host='0.0.0.0', port=8080, debug=True)

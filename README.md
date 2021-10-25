@@ -17,6 +17,23 @@ docker run -p 8081:8081 -d ilkerispir/upstream
 docker run -p 8080:8080 -d ilkerispir/xds
 ```
 
+## Add Service
+```
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "hosts": [
+    {
+      "ip_address": "172.18.0.3",
+      "port": 8081,
+      "tags": {
+        "az": "us-central1-a",
+        "canary": false,
+        "load_balancing_weight": 50
+      }
+    }
+  ]
+}' http://localhost:8080/edsservice/myservice
+```
+
 ## Remove all containers & images
 ```
 docker rm -vf $(docker ps -a -q)
