@@ -16,6 +16,6 @@ FROM gcr.io/distroless/base
 
 COPY --from=build /app/grpc_server /
 
-EXPOSE 50051
+EXPOSE 8080
 
 ENTRYPOINT ["/grpc_server"]
