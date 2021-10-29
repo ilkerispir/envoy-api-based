@@ -5,7 +5,7 @@
 
 ## Run Envoy
 ```
-cd envoy; func-e run -c envoy.yaml
+docker run -d -p 80:80 -p 9000:9000 ilkerispir/envoy
 ```
 
 ## Run xDS
@@ -15,7 +15,7 @@ cd xds; go run grpc_server.go
 
 ## Run Resource
 ```
-docker run -d -p 8080:8080 ilkerispir/resource
+docker run -d -p 8081:8080 ilkerispir/resource
 ```
 
 ## cURL Test
