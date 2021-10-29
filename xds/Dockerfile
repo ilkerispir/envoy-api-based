@@ -1,11 +1,19 @@
-FROM python:3.9-slim
-
-ENV PYTHONUNBUFFERED True
+FROM golang:1.17 as builder
 
 WORKDIR /app
 
+COPY go.* ./
+
+RUN go mod download
+
 COPY . ./
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o server
 
-CMD exec gunicorn --bind :8080 --workers 1 --threads 8 --timeout 0 main:app
+FROM alpine:3
+
+RUN apk add --no-cache ca-certificates
+
+COPY --from=builder /app/server /server
+
+CMD ["/server"]

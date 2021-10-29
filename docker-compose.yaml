@@ -1,12 +1,7 @@
-version: "3.7"
+version: "3.8"
 services:
   envoy:
-    build:
-      context: .
-      image: ilkerispir/envoy
-    depends_on:
-    - service1
-    - service2
+    image: ilkerispir/envoy
     ports:
     - 10000:10000
     - 9000:9000
@@ -19,14 +14,12 @@ services:
 
   service2:
     image: ilkerispir/resource
-    hostname: service1
+    hostname: service2
     ports:
-      - 8082:8082
+      - 8082:8081
 
   xds:
-    build:
-      context: .
-      dockerfile: ilkerispir/xds
-    command: bin/example -debug
-    healthcheck:
-      test: nc -zv localhost 18000
+    image: ilkerispir/xds
+    ports:
+      - 5000:5000
+      - 8080:8080
