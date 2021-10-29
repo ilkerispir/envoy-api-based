@@ -5,7 +5,7 @@
 
 ## Run Envoy
 ```
-docker run -d -p 80:80 -p 9000:9000 ilkerispir/envoy
+docker run -d -p 10000:10000 -p 9000:9000 ilkerispir/envoy
 ```
 
 ## Run xDS
@@ -16,6 +16,11 @@ cd xds; go run grpc_server.go
 ## Run Resource
 ```
 docker run -d -p 8081:8081 ilkerispir/resource
+```
+
+## Add Resource
+```
+curl http://localhost:5000/edsservice/register?endpoint=127.0.0.1:8081
 ```
 
 ## cURL Test
