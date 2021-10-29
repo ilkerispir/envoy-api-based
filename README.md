@@ -15,7 +15,7 @@ cd xds; go run grpc_server.go
 
 ## Run Resource
 ```
-cd resource; python server.py -p 8081
+docker run -d -p 8080:8080 ilkerispir/resource
 ```
 
 ## cURL Test
