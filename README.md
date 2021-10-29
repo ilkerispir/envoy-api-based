@@ -39,6 +39,11 @@ func-e run -c envoy.yaml
 docker-compose up -d
 ```
 
+## Run Jenkins
+```
+docker run -d -p 9080:8080 -p 60000:50000 jenkins/jenkins
+```
+
 ## Add Resource
 ```
 for i in 8081 8082 8083 8084 8085
