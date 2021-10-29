@@ -3,22 +3,14 @@
 ## Architecture
 ![Architecture](images/architecture.png)
 
-## Run Envoy
+## Run Envoyproxy
 ```
 func-e run -c envoy.yaml
-
-docker run -d -p 10000:10000 -p 9000:9000 ilkerispir/envoy
 ```
 
-## Run xDS
+## Run xDS & Resource
 ```
-cd xds; go run grpc_server.go
-docker run -d -p 8080:8080 -p 5000:5000 ilkerispir/xds
-```
-
-## Run Resource
-```
-docker run -d -p 8081:8081 ilkerispir/resource
+docker-compose up -d
 ```
 
 ## Add Resource

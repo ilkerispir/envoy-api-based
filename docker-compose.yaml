@@ -1,11 +1,5 @@
 version: "3.8"
 services:
-  envoy:
-    image: ilkerispir/envoy
-    ports:
-    - 10000:10000
-    - 9000:9000
-
   service1:
     image: ilkerispir/resource
     hostname: service1
@@ -17,6 +11,24 @@ services:
     hostname: service2
     ports:
       - 8082:8081
+
+  service3:
+    image: ilkerispir/resource
+    hostname: service3
+    ports:
+      - 8083:8081
+
+  service4:
+    image: ilkerispir/resource
+    hostname: service4
+    ports:
+      - 8084:8081
+
+  service5:
+    image: ilkerispir/resource
+    hostname: service5
+    ports:
+      - 8085:8081
 
   xds:
     image: ilkerispir/xds
