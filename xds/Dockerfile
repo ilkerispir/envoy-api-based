@@ -1,31 +1,11 @@
-# syntax=docker/dockerfile:1
+FROM python:3.9-slim
 
-##
-## Build
-##
-FROM golang:1.16-buster AS build
+ENV PYTHONUNBUFFERED True
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
+COPY . ./
 
-COPY *.go ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN go build -o /grpc_server
-
-##
-## Deploy
-##
-FROM gcr.io/distroless/base-debian10
-
-WORKDIR /
-
-COPY --from=build /grpc_server /grpc_server
-
-EXPOSE 8080
-
-USER nonroot:nonroot
-
-ENTRYPOINT ["/grpc_server"]
+CMD exec gunicorn --bind :8080 --workers 1 --threads 8 --timeout 0 main:app
