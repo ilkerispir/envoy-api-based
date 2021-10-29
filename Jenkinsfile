@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('deploy') {
+        stage('hello') {
             steps {
-                sh "docker-compose up -d"
+                sh "echo hello"
             }
         }
     }
