@@ -32,9 +32,9 @@ def main(argv):
          port = arg
 
    print("Registering endpoint: 127.0.0.1:", port)
-   url = 'http://localhost:5000/edsservice/register?endpoint=127.0.0.1:' + str(port)
-   f = urllib.request.urlopen(url)
-   print(f.read().decode('utf-8'))
+   #url = 'http://localhost:5000/edsservice/register?endpoint=127.0.0.1:' + str(port)
+   #f = urllib.request.urlopen(url)
+   #print(f.read().decode('utf-8'))
 
    print("Starting server with uuid: " + str(uid))
    app.run(host='0.0.0.0', port=int(port), debug=True)
