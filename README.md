@@ -1,6 +1,6 @@
 # Envoyproxy API-based dynamic endpoint discovery configuration
 
-![Envoy Logo](static/images/envoy-logo.svg)
+![Envoy Logo](images/envoy.png)
 ## [Envoy Proxy](https://www.envoyproxy.io/)
 - It is a modern Layer7(App) and Layer3(TCP) proxy
 - Incredibly modernized version of reverse proxies like NGINX, HAProxy
