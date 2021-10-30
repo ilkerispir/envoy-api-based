@@ -31,7 +31,7 @@
 
 ## Run Envoyproxy
 ```
-func-e run -c envoy/envoy.yaml
+func-e run -c envoy.yaml
 ```
 
 ## Run xDS & Resource
