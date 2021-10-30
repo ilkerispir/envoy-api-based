@@ -1,4 +1,4 @@
-module github.com/ilker/envoy-api-based
+module github.com/ilkerispir/envoy-api-based
 
 go 1.15
 
