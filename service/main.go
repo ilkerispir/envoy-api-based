@@ -20,12 +20,5 @@ func main() {
 		})
 	})
 
-	r.GET("/healthz", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"success": true,
-			"message": "ok",
-		})
-	})
-
 	r.Run(":8081")
 }
