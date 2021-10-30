@@ -1,4 +1,4 @@
-# Envoyproxy API-based dynamic endpoint discovery configuration
+# Envoyproxy xDS Server
 
 ![Envoy Logo](images/envoy.png)
 ## [Envoy Proxy](https://www.envoyproxy.io/)
