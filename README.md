@@ -79,6 +79,7 @@ docker rmi -f $(docker images -a -q)
 * https://www.jenkins.io/doc/book/installing/linux/
 * https://www.youtube.com/watch?v=Uiv5m20lYaE
 * https://medium.com/hepsiburadatech/envoy-bgp-ecmp-frr-ile-da%C4%9F%C4%B1t%C4%B1k-frontproxy-ortam-haz%C4%B1rlama-e8b98211bdce
+* https://static.sched.com/hosted_files/kccncna20/03/BuildingAnEnvoyControlPlane.pdf
 
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ilkerispir.com/)
