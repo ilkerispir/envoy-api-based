@@ -1,0 +1,18 @@
+name: test_config
+spec:
+  listeners:
+  - name: listener_0
+    address: 0.0.0.0
+    port: 9000
+    routes:
+    - name: echoroute
+      prefix: /
+      clusters:
+      - echo
+  clusters:
+  - name: echo
+    endpoints:
+    - address: 0.0.0.0
+      port: 9101
+    - address: 0.0.0.0
+      port: 9102
