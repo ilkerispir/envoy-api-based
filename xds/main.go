@@ -7,7 +7,7 @@ import (
 	"github.com/envoyproxy/go-control-plane/pkg/cache/v3"
 	serverv3 "github.com/envoyproxy/go-control-plane/pkg/server/v3"
 	log "github.com/sirupsen/logrus"
-	"github.com/ilkerispir/envoy-xds-server/internal/processor"
+	"github.com/ilkerispir/envoy-api-based/internal/processor"
 	"github.com/ilkerispir/envoy-api-based/internal/server"
 	"github.com/ilkerispir/envoy-api-based/internal/watcher"
 )
