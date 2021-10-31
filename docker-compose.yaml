@@ -4,34 +4,16 @@ services:
     image: ilkerispir/resource
     hostname: service1
     ports:
-      - 8081:8081
+      - 9101:8080
 
   service2:
     image: ilkerispir/resource
     hostname: service2
     ports:
-      - 8082:8081
-
-  service3:
-    image: ilkerispir/resource
-    hostname: service3
-    ports:
-      - 8083:8081
-
-  service4:
-    image: ilkerispir/resource
-    hostname: service4
-    ports:
-      - 8084:8081
-
-  service5:
-    image: ilkerispir/resource
-    hostname: service5
-    ports:
-      - 8085:8081
+      - 9102:8080
 
   xds:
     image: ilkerispir/xds
     ports:
-      - 5000:5000
-      - 8080:8080
+      - 9002:9002
+      - 9003:9003
