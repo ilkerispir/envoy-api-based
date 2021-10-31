@@ -42,9 +42,10 @@ docker-compose up -d
 ```
 ### Docker
 ```
-docker run -d -p 9101:8080 ilkerispir/resource
-docker run -d -p 9102:8080 ilkerispir/resource
+docker run --rm -i -t -p  9101:8080 ilkerispir/resource
+docker run --rm -i -t -p 9102:8080 ilkerispir/resource
 docker run --rm -i -t -p 9002:9002 ilkerispir/xds
+docker run --rm -i -t -p 9003:9003 ilkerispir/envoy
 ```
 
 ## Run Jenkins
@@ -52,27 +53,13 @@ docker run --rm -i -t -p 9002:9002 ilkerispir/xds
 docker run -d -p 9080:8080 -p 60000:50000 jenkins/jenkins
 ```
 
-## Add Resource
-```
-for i in 8081 8082 8083 8084 8085
-    do
-        curl http://localhost:5000/edsservice/register?endpoint=127.0.0.1:$i
-        sleep .5
-done
-```
-
 ## cURL Test
 ```
-while true; do curl http://localhost:10000; sleep .5; printf '\n'; done
+while true; do curl http://localhost:9000; sleep .5; printf '\n'; done
 ```
 
 ## Result
 ![Result](images/curl.png)
-
-## Start all of our containers
-```
-docker-compose up -d
-```
 
 ## Remove all containers & images
 ```
