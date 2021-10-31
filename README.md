@@ -31,7 +31,7 @@
 
 ## Run Envoyproxy
 ```
-func-e run -c envoy.yaml
+func-e run -c proxy/envoy.yaml
 ```
 
 ## Run xDS & Resource
@@ -42,10 +42,9 @@ docker-compose up -d
 ```
 ### Docker
 ```
-docker run --rm -i -t -p  9101:8080 ilkerispir/resource
+docker run --rm -i -t -p 9101:8080 ilkerispir/resource
 docker run --rm -i -t -p 9102:8080 ilkerispir/resource
 docker run --rm -i -t -p 9002:9002 ilkerispir/xds
-docker run --rm -i -t -p 9003:9003 ilkerispir/envoy
 ```
 
 ## Run Jenkins
