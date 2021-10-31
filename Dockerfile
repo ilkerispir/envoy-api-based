@@ -6,13 +6,7 @@ COPY go.* ./
 
 RUN go mod download
 
-COPY apis ./apis
-
-COPY config ./config
-
-COPY internal ./internal
-
-COPY xds/main.go ./main.go
+COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o server
 

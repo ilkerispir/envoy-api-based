@@ -35,8 +35,16 @@ func-e run -c envoy.yaml
 ```
 
 ## Run xDS & Resource
+
+### Docker Compose
 ```
 docker-compose up -d
+```
+### Docker
+```
+docker run -d -p 9101:8080 ilkerispir/resource
+docker run -d -p 9102:8080 ilkerispir/resource
+docker run --rm -i -t -p 9002:9002 ilkerispir/xds
 ```
 
 ## Run Jenkins
