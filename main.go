@@ -46,7 +46,7 @@ func init() {
 	flag.StringVar(&nodeID, "nodeID", "test-id", "Node ID")
 
 	// Define the directory to watch for Envoy configuration files
-	flag.StringVar(&watchDirectoryFileName, "watchDirectoryFileName", "config/config.yaml", "full path to directory to watch for files")
+	flag.StringVar(&watchDirectoryFileName, "watchDirectoryFileName", "config.yaml", "full path to directory to watch for files")
 }
 
 func main() {
