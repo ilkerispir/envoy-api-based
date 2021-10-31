@@ -54,6 +54,8 @@ docker run -d -p 9080:8080 -p 60000:50000 jenkins/jenkins
 
 ## cURL Test
 ```
+curl http://localhost:9101; printf '\n';
+curl http://localhost:9102; printf '\n';
 while true; do curl http://localhost:9000; sleep .5; printf '\n'; done
 ```
 
